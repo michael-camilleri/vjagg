@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:orderInCategory="50"
+        android:title="View Personal Journeys"
+        android:icon="@drawable/historical"
+        android:onClick="onPersonal"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:orderInCategory="100"
+        android:title="Send Debug Log"
+        android:onClick="onSendLogFile"
+        app:showAsAction="never"/>
+
+    <item
+        android:orderInCategory="200"
+        android:title="Clear Debug Log"
+        android:onClick="onDeleteLogFile"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/MenuSettings"
+        android:orderInCategory="250"
+        android:title="Settings"
+        android:icon="@drawable/settings"
+        android:onClick="onSettings"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:orderInCategory="300"
+        android:title="Help"
+        android:icon="@drawable/help"
+        android:onClick="onHelp"
+        app:showAsAction="ifRoom"/>
+</menu>

@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="mt.edu.um.vjagg"
+    android:versionCode="10105"
+    android:versionName="1.01.05">
+
+    <!-- ======= TODO ====== -->
+    <!-- Seems I have a bug if the Post-Process File is not found when the Auto-Stop happens and we attempt Auto-Send. Application Crashed for some reason [Refer to Maria's upload: on 18/10/2016]-->
+
+    <!-- Consider implementing [http://www.shanekirk.com/2012/04/asynctask-missteps/] -->
+
+
+    <!-- ====== Fancy Additions ======= -->
+    <!-- Put the check for debug log file before the showing of message entry prompt -->
+    <!-- Revise the Error Notification process -->
+    <!-- Add a select all option for the Journey Screen -->
+
+
+    <!-- ======= VERSION HISTORY ==== -->
+    <!-- Beta (v0.01.02) - Fixed issue with older API's not supporting TLSv1.2 -->
+    <!-- Beta (v0.01.03) - Fixed issue with older devices not having LOCATION_MODE settings -->
+    <!--
+         Beta (v0.01.04) - Fixed issue with some devices not triggering watchdog because numSatellites was too big: now using the number used in fix instead...
+                         - Changed the Stop Pointer to point to the window just before the trigger, not the last window within the trigger.
+                         - Changed Logging to disable Debug levels to screen and added more debug scripts
+    -->
+    <!--
+         Beta (v0.02.01) - Changed the View of the Journey List to be a single list view with checkbox and longclick for setting purpose/mode
+                         - Moved the Clear/Send journeys to the context menu
+                         - Modified mechanism for sending and clearing the journeys based only on the selection of the user...
+                         - Added Message functionality to the sending of log data
+                         - GPS prompt now considers whether it is already on but low-accuracy or off altogether and acts accordingly...
+                         - Improved the Messaging subsystem by keeping track of dialogs
+                         - Changed some wordings in gui
+    -->
+    <!--
+         Beta (v0.02.02) - Added Capability of joining journeys automatically based on distance/velocity and time difference
+                         - Removed debug log of the number of satellites used in fix...
+                         - Added Watchdog Identification so that multiple WD can be latched...
+    -->
+    <!-- Beta (v0.02.03) - Working on improving the journey navigation -->
+    <!--
+         Beta (v0.03.01) - Revamping the Journey Tracking Algorithm
+                         - Did proper downsampling
+                         - Working with Alpha Version (outputting and reading from Debug File)
+                         - Generating a csv file of distances
+    -->
+    <!--
+         Beta (v0.03.02) - Fixed bug in that if journey too short, was being read in part.. hence corrupting remainder
+                         - Fixed bug whereby the stop point could be placed before the start point...
+                         - Fixed another bug in the use of the start pointer (was using filled flag instead)
+    -->
+    <!--
+         Beta (v0.03.03) - Reverting to using primitive types wherever possible
+                         - Fixed bug whereby journeys were not being stored in their entirety
+                         - Fixed bug with having repeated portions of journeys
+                         - Added Waiting screen for when the device is sending log data [Commit 155]
+    -->
+    <!--
+         Beta (v0.03.04) - Fixed bug where the End Window was not in sync with the actual updates to the raw point buffer (since calls to GPS
+                            timeouts, happen asynchronously
+                         - Fixed bug where the Start/Stop Markov Chain was immediately moving from size of 1 to size of 4 (full size)...
+    -->
+    <!--
+         Beta (v0.03.05) - Completely revamped the JourneyListAdapter class to fix bug with selection disappearing after scrolling and
+                            reduce memory leaks
+                         - Hacked a crude solution to wait for the service to terminate before starting post-processing: (basically by using the life-file)
+                         - Added Multi-Window Support
+                         - Added Post-processing to the Journeys
+                         - Fine-tuned some values
+                         - Revised Termination Conditions
+                         - Improved Logging Framework to automatically flush and keep tabs on the buffer size (not larger than 3 days)
+                         - Fixed issue with the version name/number not registering correctly
+    -->
+    <!-- Beta (v0.03.06) - Fixed issue with the life-file for the Service. Now much more interactive and robust since it uses a proper signaling mechanism -->
+    <!--
+         Beta (v0.03.07) - Added Vodafone Foundation and UoM Logo
+                         - The Data Send Activity now finishes (and we go back to the Main Activity) if after a Data Send or Clearing operation there are no journeys left...
+                         - The map also clears in general once a DataSend or Clearing Activity is executed.
+    -->
+    <!--
+         Beta (v0.03.08  - Added Welcome screen
+                         - Removed permission for writing to external storage
+                         - Changed Groupings for Age Selection (18 onwards), but in a way to provide the possibility of lower ages in the future by starting from value of 1...
+                         - Changed Logging framework to be more efficient in data storage space
+                         - Added full logging of all GPS samples in the log file
+    -->
+    <!--
+         Beta (v0.03.09) - Added more debug logs to the Post Processor
+                         - Increased Font size of the SignUP according to screen size
+                         - Adding Help Screen
+                         - Attempting to debug issue with log-files being incomplete
+                         - Reduced logging load through changes in satellite only
+    -->
+    <!--
+         Beta (v0.03.10) - Added UoM & Vodafone Logo's also to main screen
+                         - Limited the size of the UoM and Vodafone Logo's
+                         - Improved the ScrollView of the Help Layout
+                         - Added Back button to the screen in the Toolbar
+                         - Added Terms & Conditions
+    -->
+
+
+    <!--
+         Beta (v0.03.11) - Found (& Fixed) minor bug in the Trim function (for journey post-processing)
+                         - Improved Help View (shorter and more understandable text)
+    -->
+
+
+    <!--
+         Beta (v0.03.12) - Changed Name to vjaġġ
+                         - Added support for different screen sizes
+                         - Completely overhauled UI schemes
+                         - Added ability to view one's ID
+    -->
+
+
+    <!-- Beta (v0.03.13) - Minor Wording changes -->
+    <!--
+         Beta (v0.03.14) - Renamed Package to vjagg
+                         - Changed Title of Send Journeys Button to View Journeys to better reflect usage
+                         - Moved some menu items (help) to action buttons
+                         - Added Personal History of Journeys (in progress) - Minimal testing & bug fixes
+    -->
+
+
+    <!--
+         Beta (v0.03.15) - Debugged Personal History Storage (file was never being created)
+                         - Debugged repetitive signaling of erasure message from Journey List View
+    -->
+
+
+    <!--
+         Beta (v0.03.16) - Added support for storing all GPS trace data to external file for improving our algorithm
+                         - Added permission for writing to external storage (required for above)
+    -->
+
+
+    <!--
+         Beta (v0.04.01) - Changed names of files to reflect VJAGG rather than TMAR
+                         - Made the Store-All setting more robust (storing the setting itself to file)
+                         - The storage of points in the case of Store-All is now separated by time (on 100s granularity)
+                         - The communication between the Main Activity and the Route Logger service now happens more efficienty through a static member of the RouteLogger class
+    -->
+
+
+    <!-- Beta (v0.04.02) - Fixed bug whereby the Journey Purpose/Mode were not being updated correctly -->
+
+
+    <!--
+         Beta (v0.04.03) - Changed the Mode selection to support multiple values
+                         - Changed the way the Mode and Purpose Selection is brought up, and the general gui of the List View
+                         - Fixed bug whereby when scrolling, the selection (highlighting) of journeys was incorrect
+                         - Tuned the view update on a delete/send of journeys to be more intuitive
+                         - Ensured all views contain only the logo (not the text)
+                         - Added Icons for upload/delete journeys
+                         - Updated Help Contents Accordingly
+    -->
+
+
+    <!--
+         Beta (v0.04.04) - Added Log calls to the LogView object and removed some commented code...
+                         - This version is intended mainly to test on the pre-launch report on Google Play
+    -->
+
+
+    <!--
+         Beta (v0.05.00) - Split the responsibilities of the Route Logger from State Control via the Tracking Controller
+                         - Moved the storage logging to the Tracking Controller
+                         - Moved the Post-Processor initiation through the Tracking Controller
+    -->
+
+
+    <!--
+         Beta (v0.05.01) - Added Alarm Broadcast Retriever
+                         - Enforced Portrait Orientation for all activities
+                         - Implemented full Accelerometer-GPS smart-switching (basically, replicated significant motion sensor)
+    -->
+
+
+    <!--
+         Beta (v0.05.02) - Checks if Accelerometer is present on the device before allowing the GPS to timeout
+                         - Changed the Window to 20s, with 10s leeway
+                         - Removed offsets as too much to allow debugging
+    -->
+
+
+    <!--
+         RC (v0.05.03)   - Made the thresholds more permissive
+                         - Using a partial wakelock for the CPU... not ideal but not sure what else to do...
+                         - Temporarily removed Accelerometer-Based Control
+    -->
+
+
+    <!--
+         Release (v1.0.0)- Release Version
+                         - With Accelerometer control
+    -->
+
+
+    <!-- Release (v1.0.01) - Support for Avoiding Doze in Android Marshmallow and above -->
+
+
+    <!--
+         Release (v1.0.02) - Fixed bug in transitioning between Accel and GPS
+                           - Changed the Thresholds for PP distance
+    -->
+
+
+    <!-- Release (v1.01.00) - Fixed bug in transitioning between Accel and GPS by incorporating in one background service which holds a wakelock -->
+
+
+    <!--
+         Release (v1.01.01) - Added Sporting Reason in Trip Purpose
+                            - Added None in relation to University
+    -->
+
+
+    <!--
+         Release (v1.01.02) - Added automatic start/stop logging and auto-send features
+                            - Setting is carried across device reboots
+    -->
+
+
+    <!--
+         Release (v1.01.03) - Fixed bug in auto-logging of Accelerometer Value (last dimension was wrong)
+                            - Implemented flag to control Efficiency Optimisations (on/off)
+                            - Made the Store-Writer static and synchronised
+                            - Changed storage to Downloads folder to support older devices
+    -->
+
+
+    <!-- Release (v1.01.04) - Tied the Store-Everything flag to disabling efficiency optimisations: thus this is now a release feature -->
+
+    <!-- Release (v1.01.05) - Explicitly Throttling Accelerometer Update rate -->
+
+
+    <!-- ======== PERMISSIONS ======= -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- == APPLICATION COMPONENTS == -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/vjagg_launcher"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".HelpActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mt.edu.um.vjagg.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SignUpActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mt.edu.um.vjagg.MainActivity" />
+        </activity>
+        <activity
+            android:name=".JourneyListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mt.edu.um.vjagg.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mt.edu.um.vjagg.MainActivity" />
+        </activity>
+
+        <receiver
+            android:name=".AutoStarter"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".TrackingService"
+            android:enabled="true"
+            android:exported="false" /> <!-- Hide from other applications -->
+
+        <service
+            android:name=".AutoStarter$SendJourneysService"
+            android:enabled="true"
+            android:exported="false" /> <!-- Hide from other applications -->
+
+
+        <!-- Meta Data Definitions -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAShLtvsJ0ZmTfJ7CL4YX7gEOLXueSytmQ" />
+        <meta-data
+            android:name="com.sec.android.support.multiwindow"
+            android:value="true" />
+        <meta-data
+            android:name="com.sec.android.multiwindow.DEFAULT_SIZE_W"
+            android:value="632.0dip" />
+        <meta-data
+            android:name="com.sec.android.multiwindow.DEFAULT_SIZE_H"
+            android:value="598.0dip" />
+        <meta-data
+            android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W"
+            android:value="632.0dip" />
+        <meta-data
+            android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H"
+            android:value="598.0dip" />
+
+        <receiver
+            android:name=".BatteryLogger"
+            android:enabled="true"
+            android:exported="true"></receiver>
+    </application>
+
+</manifest>

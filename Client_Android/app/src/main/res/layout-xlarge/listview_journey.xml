@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:orientation="horizontal"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="5dp">
+
+    <CheckBox
+        android:id="@+id/journey_check"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:scaleX="1.25"
+        android:scaleY="1.25"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:focusableInTouchMode="false"
+        android:focusable="false">
+    </CheckBox>
+
+    <LinearLayout
+        android:layout_width="0pt"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin">
+
+        <TextView
+            android:id="@+id/firstLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="Sat 30/Apr/2016"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:clickable="false"/>
+
+        <TextView
+            android:id="@+id/times"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="[09:11:04] - [09:56:24]"
+            android:layout_marginTop="5dp"
+            android:paddingBottom="5dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:clickable="false"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/mode_button"
+        android:layout_width="0pt"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Mode (Unspecified)"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        />
+
+    <Button
+        android:id="@+id/purpose_button"
+        android:layout_width="0pt"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Purpose (Unspecified)"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_gravity="center_vertical"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        />
+
+</LinearLayout>

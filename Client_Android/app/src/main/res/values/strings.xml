@@ -1,0 +1,102 @@
+<resources>
+    <string name="app_name">vjaġġ</string>
+    <string name="app_subtitle">Understanding travel behaviour</string>
+    <string name="vodafone">A Connecting for Good Project funded by the </string>
+
+    <!-- Strings related to login -->
+    <string name="welcome_content">Welcome to <i><u>vjaġġ</u> - understanding travel behaviour</i>.
+        \r\n\nThis project is provided by the University of Malta with the support of the Vodafone Foundation (A Connecting for Good project).
+        \r\n\nThis mobile application seamlessly collects data about journeys carried out by the user throughout the day. The information gives us valuable insight into the travel needs of individuals and the population, which are essential for our research in transportation planning.
+        \r\n\nIn the next screen you will be asked for some general ​personal ​information​,​ namely your Gender, Age Group, Relationship to the University, and whether you have access to a car. The data ​will only be used for statistical and demographic purposes in relation to the study. Once you provide this information, the App generates a unique code which will tie together the data you provided and your journey information on our database. ​The data is completely anonymous. In fact a user can choose to reset the unique identifier code and create a new one at any point. The App also gives the user complete control to start and stop the logging process, and the journey data is not sent automatically to our servers but requires the user\'s active intervention, at which point certain journeys may be annotated and sent, or simply deleted.
+        \r\n\nUse of the <i><u>vjaġġ</u></i> app is restricted to persons who are 18 years or older, and is completely voluntary. To ​confirm that you have read and understood the information in this page ​and to give your consent for your data to be collected in the manner described in this page please click on the <b>I Agree</b> button below.\r\n\n
+        Thank you for support.</string>
+    <string name="step_0_instructions">* <i>You will need an internet connection for most of these steps. Please make sure you are connected to the internet before proceeding.</i></string>
+    <string name="step_0_alpha_version">This is an alpha version of the application. As such, it does not include any signing process. This means you will not be able to communicate with the server
+        although the app actually supports this. You will however be able to log journeys and view them &#8230; </string>
+    <string name="step_2_instructions">*<i>In order to be able to process the information, we require some details. Once you have filled in all the required fields (select the appropriate options from the dropdown menus next to each field), press <b>Sign Up</b>. The app will connect to our server and retrieve a unique identifier which will serve to allow communication with us.</i></string>
+    <string name="step_2_success">*<i>This ID is available by clicking on View Identification within the Help Menu.</i></string>
+
+    <string name="retry_content">An error occurred and we could not sign you in. Make sure you are connected to the internet and try again.\r\n\nIf the problem persists try again later or contact drt.researcher@gmail.com</string>
+
+    <!-- Strings related to Help Screen -->
+    <string name="help_introduction">Welcome to the <u><i>vjaġġ</i></u> application Help!\n\nThe aim of this application (A Connecting for Good Project funded by the Vodafone Malta Foundation in collaboration with the University of Malta) is to collect data about your trips. This Help section is organised in a manner which describes every part of the app. It also allows you to view the Terms and Conditions as well as your unique Identification Number. These can be obtained from the context menu in the top right corner.\n\nThank you for supporting our project and donating your travel information!\n\nThe <u><i>vjaġġ</i></u> team</string>
+    <string name="help_main_first">The main screen consists of two sections:\n
+    \t&#8226; The <b>Header</b> at the top contains a menu (amongst others for this Help screen and sending debug logs).\n
+    \t&#8226; The <b>Control</b> Area allows the user to start/stop tracking and upload journey data.\n\n
+    Each of these is described in more detail below.</string>
+    <string name="help_main_header_title"><u>Header Area</u></string>
+
+    <string name="help_main_header">The header provides the user with the functionality to:\n
+        \t&#8226; View the stored <b>Personal Journeys</b> on the device. This can be accessed by clicking on the Hour-Glass icon. This allows the user to keep a record of his/her travel patterns for his/her personal use. Journeys can be added to the personal list from the <b>Send Journey</b> Screen.\n
+        \t&#8226; Access this <b>Help</b> menu (the Question Mark icon).\n
+        \t&#8226; Send or Delete <b>Debug Logs</b>. Debug logs are useful to improve the functionality of the app as well as iron out any bugs. Specifically these should be used to report potential errors/mishaps while using the app.\n
+        \t&#8226; Enable/Disable <b>Verbose Storage</b>. Enabling this feature, keeps a history of all GPS traces, allowing us to improve the journey-tracking algorithm. If you wish to contribute, you are invited to send these (stored in the Documents folder under Vjaġġ) via email to drt.researcher@gmail.com.
+    </string>
+    <string name="help_main_header_log_title"><b>Uploading Debug Logs</b></string>
+    <string name="help_main_header_send_1">To upload a log file, click on the <u>Send Debug Log</u> option from the context menu as shown above. The <u>Send Log</u> dialog is presented.</string>
+    <string name="help_main_header_send_2">Use the dialog to enter an identification string, indicating the issue encountered. Once this is done, hit <u>SEND</u>. The log history will be uploaded to our servers and deleted from your device. You can also choose to delete the log files without sending them, by
+        clicking on the <u>&quot;Clear Debug Log&quot;</u> option from the same context menu.</string>
+    <string name="help_main_control_title"><u>Control Area</u></string>
+
+    <string name="help_main_control_desc_1">The main control screen presents three buttons which control the app.
+        \n\t&#8226; The <b>Track Me</b> button is used to start the tracking algorithm. The app will automatically partition the trips: i.e. users do not need to start and stop tracking before each trip.
+        The button is greyed out if tracking is already active.
+        \n\t&#8226; The <b>Stop Tracking</b> button is used to stop tracking. No trips are recorded by the app from this time onwards. The button is greyed out if tracking is currently inactive.
+        \n\t&#8226; The <b>Send Journeys</b> button is used to view and send any trips picked up by the app. This operation is not possible while tracking is on: the user must first stop tracking and
+        then attempt to view journeys. Pressing this button in the presence of valid trips brings up the &quot;Send Journeys&quot; view described below.\n\n
+        <i><b>Note </b>that despite having been tracking, the app may still fail to find any viable trips.</i></string>
+
+    <string name="help_send_first">The Journey View screen is used to display the list of trips captured by the app before being sent.\n
+        \n<i><b>Note </b>the layout for the journey view described below is replicated for the personal history: i.e. this section applies to both windows.</i>
+        The view area is logically divided into three sections:
+        \n\t&#8226; The <b>Header</b> at the top contains a context-menu for sending selected trips to our servers or for deleting trips.
+        \n\t&#8226; The <b>Journey List</b> Area displays the trips recorded by the app.
+        \n\t&#8226; The <b>Map </b> Area displays the route traversed by the selected trip.</string>
+    <string name="help_send_header_title"><u>Header</u></string>
+
+    <string name="help_send_header">
+        \t&#8226; <b>Send Selected</b> (arrow icon) - Used to send the checked trips to our server. Once the checked (selected) trips are sent, they are deleted from the device. The user is given the option to keep a backup of the journey in the personal history folder. This option is unavailable for the Personal Journey Screen.\n\n
+        <b>IMPORTANT</b>: Before sending the trips, the user should fill out some details about the purpose and mode of travel.\n
+        \n\t&#8226; <b>Clear Selected</b> (trash icon) - Used to delete the checked (selected) trips. Note that this operation is irreversible and the journey data cannot be recovered. Again, the user is asked if s/he wishes to keep a backup in the personal history.</string>
+    <string name="help_send_list_desc_1">The Journey List view shows the recorded trips in chronological order. Each trip is identified by the date and timing of the trip. Additionally, the Mode and Purpose are also displayed (initially unspecified).\n</string>
+    <string name="help_send_list_desc_2">The user can interact with each trip (row) in a number of ways:
+        \n\t&#8226; Clicking on the checkbox selects that trip for the purpose of the context menu: the send/clear journeys will apply ONLY to those selected trips.
+        \n\t&#8226; Clicking anywhere on the trip row (except the checkbox or buttons) will highlight that trip and display it on the Map Area.\n\n
+        <i><b>Note </b>that only one trip can be highlighted at any one time (although multiple trips can be selected at the checkbox level).</i>\n
+        \n\t&#8226; Clicking on the Mode (leftmost) button, brings up the Mode selection dialog. The user is asked to tick any and all modes employed for the course of the entire journey.
+        \n\t&#8226; Clicking on the Purpose (rightmost) button, brings up the Purpose selection dialog. The user is asked to enter a single purpose for the trip.
+    </string>
+
+    <string name="terms_conditions">This software is provided by the of the University of Malta with the support of the Vodafone Malta Foundation.\r\n\nThe application is designed to collect data about journeys carried out by the user throughout the day.  The information gives us valuable insight into the travel needs of individuals and the population, which are essential for our research in transportation planning.\r\n\nThe user is asked for general ​personal ​information​,​ namely Gender, Age Group, Relationship to the University, and whether s/he has access to a car. The data ​will only be used for statistical and demographic purposes in relation to the study. Once provided, this information, is tied with the journey data in our database only through a unique code, and is never transmitted again. ​The data is completely anonymous. In fact a user can choose to reset the unique identifier code and create a new one at any point. The App also gives the user complete control to start and stop the logging process, and the journey data is not sent automatically to our servers but requires the user\'s active intervention, at which point certain journeys may be annotated and sent, or simply deleted.\r\n\nUse of the <u><i>vjaġġ</i></u> app is restricted to persons who are 18 years or older, and is completely voluntary.\r\n\nThank you for supporting vjaġġ - understanding travel behaviour.</string>
+
+    <string-array name="gender_selection">
+        <item>  Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string-array name="age_grp_select">
+        <item> 18 &#8211; 24</item>
+        <item> 25 &#8211; 40</item>
+        <item> 41 &#8211; 60</item>
+        <item> 61+</item>
+    </string-array>
+
+    <string-array name="pos_selection">
+        <item>Student</item>
+        <item>Academic Staff</item>
+        <item>Administrative Staff</item>
+        <item>Visitor</item>
+        <item>None</item>
+    </string-array>
+
+    <string-array name="car_access_selection">
+        <item>Yes</item>
+        <item> No</item>
+    </string-array>
+    <string name="title_activity_settings">Settings</string>
+
+    <string name="auto_wakeup_desc">Allow the application to automatically start and stop the logging process at designated times each day. Simultaneously with auto-turn-off, you may chose to auto-upload all journeys.</string>
+    <string name="offload_all_sensors"><b>N.B.</b> Enabling this will automatically disable battery optimisations.</string>
+
+
+</resources>
