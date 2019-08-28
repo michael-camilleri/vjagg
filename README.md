@@ -1,6 +1,6 @@
 # VJAGG
 
-This repository contains all the code to go with the Paper "VJAGG - A Thick Client Smart-Phone Journey Detection Algorithm". This includes:
+This repository contains the code associated with the Paper "VJAGG - A Thick Client Smart-Phone Journey Detection Algorithm". This includes:
  1. Android and iOS Application Code for the VJAGG app.
  2. Server-Side Code for storage and retrieval of data.
  3. Code and Data to generate the Result-Figures in the paper.
@@ -19,7 +19,7 @@ The Repository contains the following:
  This is the Development code for the iOS-side application. This is written in Swift, using the XCode development environment. The details of the algorithm are the same as for the android version up to some minor flow-control differences due to the different OS.
 
 ### Server
- This is the server code for communicating with the applications. This includes a number of statically-linked libraries/utilities. The core code is written in C++.
+ This is the server code for communicating with the applications. This includes a number of static linked libraries/utilities. The core code is written in C++.
 
 ### Figures
  A set of scripts to generate all the Figures in the paper, together with the associated data. These are written in python (3.6).
